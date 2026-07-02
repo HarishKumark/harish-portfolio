@@ -1,26 +1,23 @@
-# Harish Kumar Korada — Portfolio
+# Harish Portfolio — Editorial UI
 
-A static, Vercel-ready portfolio built with plain HTML, CSS and JavaScript.
+A static HTML, CSS and JavaScript portfolio ready for Vercel.
 
-## What changed in this design
+## Deploy
 
-- Professional blue, indigo and slate palette (no green / black / white look)
-- Optional dark mode toggle, remembered in the browser
-- Mobile navigation
-- Technology category tabs
-- Clear role timeline and expandable earlier-experience section
-- Responsive recruiter-focused layout
+1. Upload this folder to a GitHub repository.
+2. In Vercel choose **Add New → Project**.
+3. Import the repository.
+4. Keep the framework preset as **Other** and deploy.
 
-## Deploy on Vercel
+## Update before publishing
 
-1. Create a GitHub repository and upload these files.
-2. In Vercel, choose **Add New → Project**.
-3. Import the GitHub repository.
-4. Select **Other** for Framework Preset.
-5. Click **Deploy**.
+- Replace the LinkedIn URL in `index.html` if it changes.
+- Add a GitHub link if desired.
+- The CV download links to `assets/Harish_Kumar_Korada.docx`.
 
-## Before publishing
+No build command is needed.
 
-- Replace the placeholder `#` GitHub link in `index.html`.
-- The provided CV is already included at `assets/Harish_Kumar_Korada.docx`.
-- Update phone or other contact details only when you are comfortable publishing them.
+## Links
+
+- GitHub: https://github.com/HarishKumark
+- LinkedIn: https://www.linkedin.com/in/korada-harish-kumar
