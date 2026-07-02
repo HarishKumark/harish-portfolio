@@ -1,12 +1,26 @@
-# Harish Portfolio — UI Refresh
+# Harish Kumar Korada — Portfolio
 
-A static portfolio designed for Vercel deployment.
+A static, Vercel-ready portfolio built with plain HTML, CSS and JavaScript.
 
+## What changed in this design
 
-The CV download link is already included at `assets/Harish_Kumar_Korada.docx`.
+- Professional blue, indigo and slate palette (no green / black / white look)
+- Optional dark mode toggle, remembered in the browser
+- Mobile navigation
+- Technology category tabs
+- Clear role timeline and expandable earlier-experience section
+- Responsive recruiter-focused layout
 
-## Edit details
+## Deploy on Vercel
 
-- Update email in `index.html` if needed.
-- LinkedIn is set to the profile shown on the supplied CV.
-- Content is designed to match the supplied resume. Apache Kafka is explicitly labelled as hands-on learning and Machine Learning as current learning.
+1. Create a GitHub repository and upload these files.
+2. In Vercel, choose **Add New → Project**.
+3. Import the GitHub repository.
+4. Select **Other** for Framework Preset.
+5. Click **Deploy**.
+
+## Before publishing
+
+- Replace the placeholder `#` GitHub link in `index.html`.
+- The provided CV is already included at `assets/Harish_Kumar_Korada.docx`.
+- Update phone or other contact details only when you are comfortable publishing them.
