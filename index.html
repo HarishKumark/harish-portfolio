@@ -1,225 +1,1460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Harish Kumar Korada — Software Engineer specialising in Java, Scala, microservices and dependable delivery." />
-  <meta name="theme-color" content="#101010" />
-  <title>Harish Kumar Korada — Software Engineer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Harish Kumar Korada | Java & Scala Software Engineer</title>
+
+    <meta
+            name="description"
+            content="Portfolio of Harish Kumar Korada, a Java and Scala software engineer specialising in backend services, microservices, test automation, CI/CD, observability and production support."
+    />
+
+    <meta
+            name="keywords"
+            content="Harish Kumar Korada, Java Developer, Scala Developer, Backend Engineer, Spring Boot, Play Framework, Microservices, Edinburgh"
+    />
+
+    <meta name="author" content="Harish Kumar Korada" />
+    <meta name="theme-color" content="#101114" />
+
+    <meta property="og:title" content="Harish Kumar Korada | Software Engineer" />
+    <meta
+            property="og:description"
+            content="Java and Scala backend engineer building dependable services and supporting software from delivery to production."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://harish-korada.vercel.app/" />
+
+    <style>
+        :root {
+            --page: #101114;
+            --page-soft: #17191e;
+            --panel: #1c1f25;
+            --panel-soft: #22262d;
+            --text: #f5f4ef;
+            --muted: #aaaeb8;
+            --line: rgba(255, 255, 255, 0.12);
+            --accent: #f1c84b;
+            --accent-soft: rgba(241, 200, 75, 0.12);
+            --success: #8dd7b5;
+            --max-width: 1180px;
+            --radius: 22px;
+            --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                    radial-gradient(circle at 85% 10%, rgba(241, 200, 75, 0.07), transparent 25%),
+                    var(--page);
+            color: var(--text);
+            font-family:
+                    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                    "Segoe UI", sans-serif;
+            line-height: 1.65;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        .skip-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1000;
+            transform: translateY(-150%);
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: var(--accent);
+            color: #111;
+            font-weight: 800;
+            transition: transform 0.2s ease;
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        .container {
+            width: min(calc(100% - 40px), var(--max-width));
+            margin-inline: auto;
+        }
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--line);
+            background: rgba(16, 17, 20, 0.86);
+            backdrop-filter: blur(18px);
+        }
+
+        .header-inner {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 850;
+            letter-spacing: 0.08em;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 50%;
+            background: var(--accent);
+            color: #111;
+            font-weight: 950;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            color: var(--muted);
+            font-size: 0.94rem;
+            font-weight: 700;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 10px 15px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--text);
+        }
+
+        .menu-button {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            min-height: calc(100vh - 76px);
+            display: grid;
+            align-items: center;
+            padding: 86px 0 64px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.45fr) minmax(290px, 0.7fr);
+            gap: 64px;
+            align-items: center;
+        }
+
+        .eyebrow,
+        .section-number {
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .location {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-weight: 650;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 900px;
+            margin-bottom: 24px;
+            font-size: clamp(3rem, 7.8vw, 7.4rem);
+            line-height: 0.93;
+            letter-spacing: -0.072em;
+        }
+
+        .hero-summary {
+            max-width: 760px;
+            margin-bottom: 30px;
+            color: #d1d3da;
+            font-size: clamp(1.08rem, 2vw, 1.28rem);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 34px;
+        }
+
+        .tag {
+            padding: 8px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: #d8dae0;
+            background: rgba(255, 255, 255, 0.025);
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .hero-actions,
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            min-height: 48px;
+            padding: 12px 18px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            font-weight: 850;
+            transition:
+                    transform 0.2s ease,
+                    background 0.2s ease,
+                    border-color 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.28);
+        }
+
+        .button-primary {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: #121212;
+        }
+
+        .button-secondary {
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .hero-panel {
+            position: relative;
+            overflow: hidden;
+            padding: 28px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background:
+                    linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 55%),
+                    var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-panel::after {
+            content: "</>";
+            position: absolute;
+            right: 16px;
+            bottom: -20px;
+            color: rgba(241, 200, 75, 0.1);
+            font-size: 8rem;
+            font-weight: 950;
+            line-height: 1;
+        }
+
+        .panel-label {
+            margin-bottom: 22px;
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .panel-name {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 8px;
+            font-size: 2rem;
+            line-height: 1.05;
+        }
+
+        .panel-role {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+            color: var(--accent);
+            font-weight: 800;
+        }
+
+        .availability {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #dfe2e7;
+            font-weight: 700;
+        }
+
+        .availability-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 0 6px rgba(141, 215, 181, 0.1);
+        }
+
+        .stats-strip {
+            border-block: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.015);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .stat {
+            min-height: 170px;
+            padding: 34px 28px;
+            border-right: 1px solid var(--line);
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat-value {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--accent);
+            font-size: clamp(2.1rem, 4vw, 3.6rem);
+            font-weight: 950;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 850;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section {
+            padding: 110px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .section-heading {
+            display: grid;
+            grid-template-columns: 170px 1fr;
+            gap: 38px;
+            margin-bottom: 56px;
+        }
+
+        .section-heading h2 {
+            max-width: 880px;
+            margin-bottom: 0;
+            font-size: clamp(2.25rem, 5vw, 4.6rem);
+            line-height: 1.04;
+            letter-spacing: -0.05em;
+        }
+
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 44px;
+        }
+
+        .lead-copy {
+            color: #d5d7dc;
+            font-size: 1.18rem;
+        }
+
+        .profile-points {
+            display: grid;
+            gap: 14px;
+        }
+
+        .profile-point {
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--panel);
+        }
+
+        .profile-point strong {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+
+        .profile-point span {
+            color: var(--muted);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .work-card,
+        .certificate-card,
+        .tool-card {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background:
+                    linear-gradient(160deg, rgba(255, 255, 255, 0.04), transparent 50%),
+                    var(--panel);
+        }
+
+        .work-card {
+            display: flex;
+            min-height: 430px;
+            flex-direction: column;
+            padding: 28px;
+            transition:
+                    transform 0.25s ease,
+                    border-color 0.25s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(241, 200, 75, 0.45);
+        }
+
+        .card-kicker {
+            margin-bottom: 18px;
+            color: var(--accent);
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+        }
+
+        .work-card h3 {
+            margin-bottom: 16px;
+            font-size: 1.65rem;
+            line-height: 1.15;
+        }
+
+        .work-card p {
+            color: var(--muted);
+        }
+
+        .outcome-list {
+            display: grid;
+            gap: 10px;
+            margin: 6px 0 24px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .outcome-list li {
+            position: relative;
+            padding-left: 21px;
+            color: #d4d7dc;
+        }
+
+        .outcome-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 950;
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 6px 9px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: #c8cbd2;
+            font-size: 0.77rem;
+            font-weight: 750;
+        }
+
+        .experience-list {
+            position: relative;
+            display: grid;
+            gap: 0;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .experience-item:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .experience-date {
+            color: var(--accent);
+            font-size: 0.82rem;
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .experience-content h3 {
+            margin-bottom: 6px;
+            font-size: 1.6rem;
+        }
+
+        .company {
+            margin-bottom: 14px;
+            color: #d9dbe0;
+            font-weight: 750;
+        }
+
+        .experience-content p {
+            max-width: 800px;
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .certificate-card {
+            padding: 25px;
+        }
+
+        .certificate-badge {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 1.25rem;
+            font-weight: 950;
+        }
+
+        .certificate-card h3 {
+            margin-bottom: 6px;
+            font-size: 1.25rem;
+        }
+
+        .certificate-card p {
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .tool-card {
+            min-height: 215px;
+            padding: 25px;
+        }
+
+        .tool-card h3 {
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .tool-card p {
+            margin-bottom: 0;
+            color: #dadce1;
+            font-size: 1.1rem;
+            font-weight: 750;
+        }
+
+        .contact-panel {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(34px, 6vw, 70px);
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            background:
+                    radial-gradient(circle at 85% 35%, rgba(241, 200, 75, 0.16), transparent 28%),
+                    var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-panel h2 {
+            max-width: 850px;
+            margin-bottom: 20px;
+            font-size: clamp(2.5rem, 6vw, 5.6rem);
+            line-height: 0.98;
+            letter-spacing: -0.06em;
+        }
+
+        .contact-panel p {
+            max-width: 720px;
+            margin-bottom: 30px;
+            color: #d2d5da;
+            font-size: 1.12rem;
+        }
+
+        .site-footer {
+            padding: 32px 0 42px;
+            color: var(--muted);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-weight: 750;
+        }
+
+        .footer-links a:hover,
+        .footer-links a:focus-visible {
+            color: var(--text);
+        }
+
+        :focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        @media (max-width: 960px) {
+            .hero-grid,
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-panel {
+                max-width: 580px;
+            }
+
+            .work-grid,
+            .tools-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+
+            .stat:nth-child(-n + 2) {
+                border-bottom: 1px solid var(--line);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                width: min(calc(100% - 28px), var(--max-width));
+            }
+
+            .menu-button {
+                display: grid;
+                place-items: center;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: 76px 0 auto;
+                display: none;
+                max-height: calc(100vh - 76px);
+                overflow: auto;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 18px 20px 28px;
+                border-bottom: 1px solid var(--line);
+                background: rgba(16, 17, 20, 0.98);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 4px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .nav-cta {
+                margin-top: 12px;
+                text-align: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 64px;
+            }
+
+            h1 {
+                letter-spacing: -0.058em;
+            }
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .section-heading {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin-bottom: 38px;
+            }
+
+            .work-grid,
+            .certificates-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-card {
+                min-height: auto;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                min-height: auto;
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            .hero-actions .button,
+            .card-actions .button {
+                width: 100%;
+            }
+
+            .brand-text {
+                display: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-  <header class="header" id="top">
-    <div class="shell nav-shell">
-      <a class="brand" href="#top" aria-label="Harish home">
-        <span class="brand-symbol">H</span>
-        <span class="brand-name">HARISH</span>
-      </a>
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Harish Kumar Korada home">
+            <span class="brand-mark" aria-hidden="true">H</span>
+            <span class="brand-text">HARISH</span>
+        </a>
 
-      <button class="menu-button" aria-controls="site-nav" aria-expanded="false" type="button">
-        <span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span>
-      </button>
+        <button
+                class="menu-button"
+                type="button"
+                aria-expanded="false"
+                aria-controls="primary-navigation"
+                aria-label="Open menu"
+        >
+            ☰
+        </button>
 
-      <nav class="nav" id="site-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#tools">Tools</a>
-        <a href="https://github.com/HarishKumark" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a href="#contact" class="nav-cta">Let’s talk <span>↗</span></a>
-      </nav>
+        <nav id="primary-navigation" class="nav-links" aria-label="Primary navigation">
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#tools">Technologies</a>
+            <a
+                    href="https://github.com/HarishKumark"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+            <a class="nav-cta" href="#contact">Let’s talk</a>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main id="main">
-    <section class="hero">
-      <div class="shell">
-        <div class="hero-top reveal">
-          <p class="kicker"><span class="pulse"></span> Edinburgh, UK · Open to software engineering opportunities</p>
-          <p class="hero-intro">I build dependable backend services, modernise complex systems, and support software confidently from delivery to production.</p>
-        </div>
-
-        <div class="hero-title reveal">
-          <span>SOFTWARE</span>
-          <span class="outline">ENGINEER</span>
-        </div>
-
-        <div class="hero-bottom">
-          <div class="identity-card reveal">
-            <div class="identity-orb"><span>&lt;/&gt;</span></div>
+<main id="main-content">
+    <section id="top" class="hero">
+        <div class="container hero-grid">
             <div>
-              <p class="mono">HARISH KUMAR KORADA</p>
-              <p>Java · Scala · Microservices<br />Cloud delivery & live operations</p>
-            </div>
-          </div>
+                <p class="location">Edinburgh, UK · Open to software engineering opportunities</p>
+                <p class="eyebrow">Java · Scala · Backend Engineering</p>
 
-          <div class="hero-description reveal">
-            <p>10+ years across enterprise software and technology delivery, with hands-on work in Java 8/11/17, Scala, Spring Boot, Play Framework, CI/CD, testing and observability.</p>
-            <div class="hero-actions">
-              <a href="#work" class="button button-dark">Explore work <span>↓</span></a>
-              <a href="assets/Harish_Kumar_Korada.docx" class="button button-ghost" download>Download CV <span>↗</span></a>
+                <h1>Dependable software, from design to production.</h1>
+
+                <p class="hero-summary">
+                    I am Harish Kumar Korada, a software engineer with 10+ years of
+                    technology experience. I build and support Java and Scala backend
+                    services, modernise complex systems, improve automated testing and
+                    help teams deliver production changes confidently.
+                </p>
+
+                <div class="hero-tags" aria-label="Key specialisms">
+                    <span class="tag">Java 8 / 11 / 17</span>
+                    <span class="tag">Scala</span>
+                    <span class="tag">Spring Boot</span>
+                    <span class="tag">Play Framework</span>
+                    <span class="tag">Microservices</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Observability</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#work">Explore my work ↓</a>
+
+                    <!-- Replace this path with your real PDF filename -->
+                    <a
+                            class="button button-secondary"
+                            href="assets/Harish_Kumar_Korada_CV.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >
+                        View / Download CV ↗
+                    </a>
+                </div>
             </div>
-          </div>
+
+            <aside class="hero-panel" aria-label="Profile summary">
+                <p class="panel-label">Software Engineer</p>
+                <h2 class="panel-name">Harish Kumar Korada</h2>
+                <p class="panel-role">Backend · Cloud Delivery · Live Operations</p>
+
+                <div class="availability">
+                    <span class="availability-dot" aria-hidden="true"></span>
+                    <span>Based in Edinburgh and open to UK opportunities</span>
+                </div>
+            </aside>
         </div>
-      </div>
-
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">JAVA 8 / 11 / 17 <span>✦</span> SCALA <span>✦</span> SPRING BOOT <span>✦</span> PLAY FRAMEWORK <span>✦</span> MICROSERVICES <span>✦</span> JAVA 8 / 11 / 17 <span>✦</span> SCALA <span>✦</span> SPRING BOOT <span>✦</span> PLAY FRAMEWORK <span>✦</span> MICROSERVICES <span>✦</span></div>
-      </div>
     </section>
 
-    <section class="stats-section">
-      <div class="shell stats-grid">
-        <article class="stat reveal">
-          <span class="stat-number">10<span>+</span></span>
-          <p>YEARS IN<br />TECHNOLOGY</p>
-        </article>
-        <article class="stat reveal">
-          <span class="stat-number">5</span>
-          <p>ENTERPRISE<br />ROLES</p>
-        </article>
-        <article class="stat reveal">
-          <span class="stat-word">JAVA</span>
-          <p>8 · 11 · 17<br />BACKEND DELIVERY</p>
-        </article>
-        <article class="stat reveal">
-          <span class="stat-word">UK</span>
-          <p>EDINBURGH<br />& HYBRID</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="intro-section section" id="about">
-      <div class="shell two-col">
-        <p class="section-index reveal">01 / PROFILE</p>
-        <div class="intro-content reveal">
-          <h2>Reliable systems are built through thoughtful engineering, not only fast code.</h2>
-          <div class="intro-copy">
-            <p>I specialise in backend engineering for complex services: APIs, integrations, data flows, automated tests and release delivery. I work comfortably across Java and Scala codebases and bring a production-first mindset to each change.</p>
-            <p>My approach combines practical implementation, clear communication and ownership—from investigation and design through testing, deployment support and improvement after release.</p>
-          </div>
-          <div class="focus-list">
-            <span>Backend engineering</span><span>Service reliability</span><span>Platform modernisation</span><span>Collaborative delivery</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="work-section section" id="work">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="section-index">02 / SELECTED WORK</p>
-          <h2>Work shaped around outcomes, quality and long-term maintainability.</h2>
-        </div>
-
-        <div class="work-grid">
-          <article class="work-card work-card-dark reveal">
-            <div class="card-top"><span>01</span><span>PUBLIC DIGITAL SERVICES</span></div>
-            <div class="work-art work-art-code" aria-hidden="true">
-              <span>service</span><span>tests</span><span>deploy</span><span>observe</span>
-              <i></i><i></i><i></i>
+    <section class="stats-strip" aria-label="Career highlights">
+        <div class="container stats-grid">
+            <div class="stat">
+                <span class="stat-value">10+</span>
+                <span class="stat-label">Years in technology</span>
             </div>
-            <div class="card-body">
-              <h3>Modernising and supporting digital tax services</h3>
-              <p>Contributing to Scala/Play backend services, upgrades, test-suite migrations, CI/CD workflows and incident investigation for large-scale public digital services.</p>
-              <ul><li>Scala</li><li>Play Framework</li><li>MongoDB</li><li>Jenkins</li><li>Kibana</li></ul>
-            </div>
-          </article>
 
-          <article class="work-card work-card-warm reveal">
-            <div class="card-top"><span>02</span><span>PRODUCT ENGINEERING</span></div>
-            <div class="work-art work-art-flow" aria-hidden="true">
-              <div class="flow-node">React</div><div class="flow-line"></div><div class="flow-node">API</div><div class="flow-line"></div><div class="flow-node">MySQL</div>
+            <div class="stat">
+                <span class="stat-value">Java</span>
+                <span class="stat-label">8 · 11 · 17</span>
             </div>
-            <div class="card-body">
-              <h3>Full-stack product and API delivery</h3>
-              <p>Designed and developed Java 17/Spring Boot applications, REST APIs, data integrations and React features for a fintech product environment.</p>
-              <ul><li>Java 17</li><li>Spring Boot</li><li>React</li><li>JPA/Hibernate</li><li>MySQL</li></ul>
-            </div>
-          </article>
 
-          <article class="work-card work-card-light reveal">
-            <div class="card-top"><span>03</span><span>ENGINEERING QUALITY</span></div>
-            <div class="work-art work-art-test" aria-hidden="true"><span class="test-check">✓</span><span>BUILD</span><span>TEST</span><span>RELEASE</span></div>
-            <div class="card-body">
-              <h3>Confidence through test and delivery improvement</h3>
-              <p>Worked on automated test migration, dependency upgrades, code review, release readiness and troubleshooting to improve delivery confidence and supportability.</p>
-              <ul><li>ScalaTest</li><li>Cucumber</li><li>Selenium</li><li>JUnit</li><li>CI/CD</li></ul>
+            <div class="stat">
+                <span class="stat-value">3</span>
+                <span class="stat-label">Industry environments</span>
             </div>
-          </article>
+
+            <div class="stat">
+                <span class="stat-value">UK</span>
+                <span class="stat-label">Edinburgh · Hybrid</span>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="experience-section section" id="experience">
-      <div class="shell two-col">
-        <p class="section-index reveal">03 / EXPERIENCE</p>
-        <div class="experience-content">
-          <div class="experience-heading reveal"><h2>Building software across public sector, fintech and telecommunications.</h2></div>
-          <div class="role-list">
-            <article class="role role-featured reveal">
-              <div class="role-date">JUN 2024 — PRESENT</div>
-              <div class="role-main"><h3>Custom Software Engineering Senior Analyst</h3><p>Accenture · Newcastle, UK / Hybrid</p></div>
-              <div class="role-summary">Scala/Play microservices, service integrations, release support, platform modernisation, monitoring and live-service investigation.</div>
-            </article>
-            <article class="role reveal">
-              <div class="role-date">SEP 2022 — MAY 2024</div>
-              <div class="role-main"><h3>Software Development Engineer</h3><p>Level E Research · Edinburgh, UK</p></div>
-              <div class="role-summary">Java 17, Spring Boot, React, MySQL, REST APIs, CI/CD and full-stack product delivery.</div>
-            </article>
-            <article class="role reveal">
-              <div class="role-date">JUL 2018 — SEP 2020</div>
-              <div class="role-main"><h3>Software Engineer</h3><p>IMI Mobiles · Hyderabad, India</p></div>
-              <div class="role-summary">Java/Spring Boot microservices, API integration, Spring Security and production releases.</div>
-            </article>
-            <details class="earlier-roles reveal">
-              <summary>View earlier software engineering roles <span>+</span></summary>
-              <div class="earlier-role"><span>DEC 2017 — JUL 2018</span><p><strong>Software Engineer</strong> · Enterprise Signals India<br />Java, Spring Framework, Thymeleaf, Bootstrap and application performance improvements.</p></div>
-              <div class="earlier-role"><span>JUL 2014 — DEC 2017</span><p><strong>Software Engineer</strong> · Head Infotech India<br />Java/Spring enterprise applications, Maven delivery workflows and AngularJS integrations.</p></div>
-            </details>
-          </div>
+    <section class="section" id="profile">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-number">01 / Profile</p>
+                <h2>Reliable systems come from thoughtful engineering, testing and ownership.</h2>
+            </div>
+
+            <div class="profile-grid">
+                <div>
+                    <p class="lead-copy">
+                        I specialise in backend engineering for complex services, including
+                        REST APIs, integrations, data flows, automated tests, release
+                        delivery and live-service support.
+                    </p>
+
+                    <p class="lead-copy">
+                        I work comfortably across Java and Scala codebases and bring a
+                        production-first mindset to each change—from investigation and
+                        implementation through testing, deployment support and improvement
+                        after release.
+                    </p>
+                </div>
+
+                <div class="profile-points">
+                    <div class="profile-point">
+                        <strong>Backend engineering</strong>
+                        <span>Maintainable services, APIs, integrations and data processing.</span>
+                    </div>
+
+                    <div class="profile-point">
+                        <strong>Engineering quality</strong>
+                        <span>Automated testing, code review, dependency upgrades and release confidence.</span>
+                    </div>
+
+                    <div class="profile-point">
+                        <strong>Live-service reliability</strong>
+                        <span>Logs, dashboards, alerts, incident investigation and production support.</span>
+                    </div>
+
+                    <div class="profile-point">
+                        <strong>Collaborative delivery</strong>
+                        <span>Clear communication with engineers, QA, product, architecture and delivery teams.</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="tools-section section" id="tools">
-      <div class="shell">
-        <div class="section-heading reveal">
-          <p class="section-index">04 / TOOLS & TECHNOLOGIES</p>
-          <h2>A hands-on engineering toolkit for building, releasing and supporting software.</h2>
-        </div>
+    <section class="section" id="work">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-number">02 / Selected work</p>
+                <h2>Complex engineering work explained through the problem, action and outcome.</h2>
+            </div>
 
-        <div class="tools-wall">
-          <article class="tool-block tool-block-large reveal"><p>LANGUAGES</p><h3>Java <span>8 / 11 / 17</span><br />Scala · SQL</h3></article>
-          <article class="tool-block tool-block-accent reveal"><p>BACKEND</p><h3>Spring Boot<br />Play Framework<br />REST APIs</h3></article>
-          <article class="tool-block reveal"><p>DATA</p><h3>MongoDB<br />MySQL · Oracle</h3></article>
-          <article class="tool-block reveal"><p>QUALITY</p><h3>JUnit · Mockito<br />ScalaTest · Cucumber<br />Selenium</h3></article>
-          <article class="tool-block tool-block-dark reveal"><p>DELIVERY</p><h3>Jenkins · GitHub<br />Docker · Kubernetes<br /><span>Working knowledge</span></h3></article>
-          <article class="tool-block tool-block-learning reveal"><p>EXPLORING</p><h3>Apache Kafka<br />Machine Learning<br /><span>Hands-on learning</span></h3></article>
-          <article class="tool-block reveal"><p>OBSERVABILITY</p><h3>Kibana · Grafana<br />PagerDuty</h3></article>
-          <article class="tool-block reveal"><p>WAYS OF WORKING</p><h3>Agile · Scrum<br />Code Reviews<br />Technical Ownership</h3></article>
+            <div class="work-grid">
+                <article class="work-card">
+                    <p class="card-kicker">Public digital services</p>
+                    <h3>Modernised automated testing for enterprise services</h3>
+
+                    <p>
+                        Helped move business-critical UI tests from a legacy Cucumber
+                        structure to ScalaTest FeatureSpec, while improving local and
+                        pipeline execution.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Created reusable conversion and test-support utilities.</li>
+                        <li>Improved browser lifecycle handling and screenshot reporting.</li>
+                        <li>Supported stable execution across local and Jenkins environments.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies used">
+                            <li>Scala</li>
+                            <li>ScalaTest</li>
+                            <li>Selenium</li>
+                            <li>Jenkins</li>
+                            <li>CI/CD</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <p class="card-kicker">FinTech research</p>
+                    <h3>Built and validated a Java-based market analysis workflow</h3>
+
+                    <p>
+                        Worked with market data retrieved from Refinitiv to prepare
+                        datasets, train a Java-based model and generate trading signals.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Cleaned, prepared and validated incoming market data.</li>
+                        <li>Tested data and model outputs for correctness.</li>
+                        <li>Investigated defects and implemented change-request fixes.</li>
+                        <li>Generated buy and sell signals from model results.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies used">
+                            <li>Java</li>
+                            <li>Refinitiv data</li>
+                            <li>Data validation</li>
+                            <li>Model testing</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <p class="card-kicker">Live-service engineering</p>
+                    <h3>Improved confidence in releases and production support</h3>
+
+                    <p>
+                        Supported backend services through dependency upgrades, release
+                        validation, alert investigation and production troubleshooting.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Used Kibana and Grafana to investigate live-service behaviour.</li>
+                        <li>Supported defect, incident and certificate-expiry investigation.</li>
+                        <li>Improved test coverage and release-readiness checks.</li>
+                        <li>Collaborated across engineering, QA and delivery teams.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies used">
+                            <li>Play Framework</li>
+                            <li>MongoDB</li>
+                            <li>Kibana</li>
+                            <li>Grafana</li>
+                            <li>Jenkins</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <p class="card-kicker">Personal project</p>
+                    <h3>Microservices backend platform</h3>
+
+                    <p>
+                        A Java and Spring Boot learning project containing product, order
+                        and inventory services with separate data stores and service
+                        integration.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Demonstrates modular microservice design.</li>
+                        <li>Uses API-based service communication.</li>
+                        <li>Provides a base for Docker, Kafka and observability improvements.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies used">
+                            <li>Java 17</li>
+                            <li>Spring Boot</li>
+                            <li>MySQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+
+                        <div class="card-actions">
+                            <!-- Replace # with the correct repository URL -->
+                            <a
+                                    class="button button-secondary"
+                                    href="https://github.com/HarishKumark"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                            >
+                                View GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <p class="card-kicker">Personal project</p>
+                    <h3>Spring Boot product API</h3>
+
+                    <p>
+                        A product service demonstrating REST API design, MongoDB
+                        persistence and integration testing using Testcontainers.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Separates controller, service and persistence concerns.</li>
+                        <li>Tests against a real disposable database container.</li>
+                        <li>Shows practical API and automated testing skills.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies used">
+                            <li>Java 17</li>
+                            <li>Spring Boot</li>
+                            <li>MongoDB</li>
+                            <li>Testcontainers</li>
+                        </ul>
+
+                        <div class="card-actions">
+                            <!-- Replace # with the correct repository URL -->
+                            <a
+                                    class="button button-secondary"
+                                    href="https://github.com/HarishKumark"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                            >
+                                View GitHub ↗
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <p class="card-kicker">Current learning</p>
+                    <h3>Kafka and machine-learning engineering</h3>
+
+                    <p>
+                        Developing practical knowledge of event-driven systems, Python,
+                        machine learning, AWS ML services and production AI workflows.
+                    </p>
+
+                    <ul class="outcome-list">
+                        <li>Building producer and consumer exercises with Spring Kafka.</li>
+                        <li>Learning data preparation, model evaluation and MLOps concepts.</li>
+                        <li>Connecting new learning to Java backend and cloud engineering.</li>
+                    </ul>
+
+                    <div class="card-footer">
+                        <ul class="tech-list" aria-label="Technologies being learned">
+                            <li>Apache Kafka</li>
+                            <li>Python</li>
+                            <li>Machine Learning</li>
+                            <li>AWS</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="contact-section" id="contact">
-      <div class="shell contact-shell reveal">
-        <p class="contact-label">05 / GET IN TOUCH</p>
-        <h2>Have a software engineering challenge<br /><em>worth solving?</em></h2>
-        <p class="contact-copy">I’m open to Java, Scala, backend and full-stack engineering opportunities across the UK.</p>
-        <div class="contact-actions">
-          <a href="mailto:khharish2@gmail.com" class="contact-email">khharish2@gmail.com <span>↗</span></a>
-          <div class="contact-links"><a href="https://www.linkedin.com/in/korada-harish-kumar" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://github.com/HarishKumark" target="_blank" rel="noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div>
-        </div>
-      </div>
-    </section>
-  </main>
+    <section class="section" id="experience">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-number">03 / Experience</p>
+                <h2>Software delivery across public services, financial research and telecommunications.</h2>
+            </div>
 
-  <footer class="footer"><div class="shell"><p>© <span id="year"></span> Harish Kumar Korada. Built for the web.</p><p>Java · Scala · Software Engineering</p></div></footer>
-  <script src="script.js"></script>
+            <div class="experience-list">
+                <article class="experience-item">
+                    <p class="experience-date">Jun 2024 — Present</p>
+
+                    <div class="experience-content">
+                        <h3>Custom Software Engineering Senior Analyst</h3>
+                        <p class="company">Accenture · Newcastle, UK / Hybrid</p>
+                        <p>
+                            Working with Scala and Play Framework services, microservices,
+                            MongoDB, Oracle, automated testing, CI/CD, production support,
+                            releases, monitoring, defects and incident investigation.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <p class="experience-date">Sep 2022 — May 2024</p>
+
+                    <div class="experience-content">
+                        <h3>Software Development Engineer</h3>
+                        <p class="company">Level E Research · Edinburgh, UK</p>
+                        <p>
+                            Retrieved and validated Refinitiv market data, prepared datasets,
+                            trained a Java-based model, generated buy and sell signals,
+                            tested outputs and investigated defects and change requests.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <p class="experience-date">Jul 2018 — Sep 2020</p>
+
+                    <div class="experience-content">
+                        <h3>Software Engineer</h3>
+                        <p class="company">IMI Mobile · Hyderabad, India</p>
+                        <p>
+                            Contributed to Java and Spring Boot services, microservice
+                            integrations, security and production release activities.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <p class="experience-date">Dec 2017 — Jul 2018</p>
+
+                    <div class="experience-content">
+                        <h3>Software Engineer</h3>
+                        <p class="company">Enterprise Signals India</p>
+                        <p>
+                            Worked on Java and Spring Framework applications, user-facing
+                            features and application performance improvements.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="experience-item">
+                    <p class="experience-date">Jul 2014 — Dec 2017</p>
+
+                    <div class="experience-content">
+                        <h3>Software Engineer</h3>
+                        <p class="company">Head Infotech India</p>
+                        <p>
+                            Developed and supported Java and Spring enterprise applications,
+                            Maven delivery workflows and AngularJS integrations.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-number">04 / Certifications</p>
+                <h2>Structured learning across cloud, architecture, Agile delivery and Generative AI.</h2>
+            </div>
+
+            <div class="certificates-grid">
+                <article class="certificate-card">
+                    <div class="certificate-badge" aria-hidden="true">AWS</div>
+                    <h3>AWS Certified Cloud Practitioner</h3>
+                    <p>Amazon Web Services</p>
+                </article>
+
+                <article class="certificate-card">
+                    <div class="certificate-badge" aria-hidden="true">PSM</div>
+                    <h3>Professional Scrum Master I (PSM I)</h3>
+                    <p>Scrum.org</p>
+                </article>
+
+                <article class="certificate-card">
+                    <div class="certificate-badge" aria-hidden="true">TA</div>
+                    <h3>Technology Architect Associate</h3>
+                    <p>Accenture</p>
+                </article>
+
+                <article class="certificate-card">
+                    <div class="certificate-badge" aria-hidden="true">AI</div>
+                    <h3>Gen AI for Delivery Practitioners — Level 2</h3>
+                    <p>Accenture learning achievement</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="tools">
+        <div class="container">
+            <div class="section-heading">
+                <p class="section-number">05 / Technologies</p>
+                <h2>A practical toolkit for building, testing, releasing and supporting software.</h2>
+            </div>
+
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <h3>Languages</h3>
+                    <p>Java 8 / 11 / 17 · Scala · SQL · JavaScript · TypeScript</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Backend</h3>
+                    <p>Spring Boot · Spring Framework · Play Framework · REST APIs · Microservices</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Data</h3>
+                    <p>MongoDB · MySQL · Oracle · Data preparation and validation</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Testing</h3>
+                    <p>JUnit · Mockito · ScalaTest · Cucumber · Selenium · Gatling · Testcontainers</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Delivery</h3>
+                    <p>Jenkins · GitHub · GitLab · CI/CD · Docker · Kubernetes working knowledge</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Observability</h3>
+                    <p>Kibana · Grafana · PagerDuty · Logs · Alerts · Production investigation</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Cloud</h3>
+                    <p>AWS fundamentals · Cloud delivery · Exploring AWS machine-learning services</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Current focus</h3>
+                    <p>Apache Kafka · Event-driven architecture · System design · Machine learning</p>
+                </article>
+
+                <article class="tool-card">
+                    <h3>Ways of working</h3>
+                    <p>Agile · Scrum · Code review · Technical documentation · Cross-team collaboration</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="contact-panel">
+                <p class="section-number">06 / Get in touch</p>
+
+                <h2>Have a backend or software engineering challenge worth solving?</h2>
+
+                <p>
+                    I am open to Java, Scala, backend, full-stack and AI-enabled software
+                    engineering opportunities across the UK.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="button button-primary" href="mailto:khharish2@gmail.com">
+                        Email me ↗
+                    </a>
+
+                    <a
+                            class="button button-secondary"
+                            href="https://www.linkedin.com/in/korada-harish-kumar/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >
+                        LinkedIn ↗
+                    </a>
+
+                    <a
+                            class="button button-secondary"
+                            href="https://github.com/HarishKumark"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                    >
+                        GitHub ↗
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>© <span id="current-year"></span> Harish Kumar Korada.</p>
+
+        <div class="footer-links">
+            <a href="#top">Back to top ↑</a>
+            <a href="mailto:khharish2@gmail.com">Email</a>
+            <a
+                    href="https://www.linkedin.com/in/korada-harish-kumar/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                LinkedIn
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const menuButton = document.querySelector(".menu-button");
+    const navigation = document.querySelector(".nav-links");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    function closeMenu() {
+        navigation.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Open menu");
+        menuButton.textContent = "☰";
+    }
+
+    menuButton.addEventListener("click", () => {
+        const isOpen = navigation.classList.toggle("open");
+
+        document.body.classList.toggle("menu-open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Close menu" : "Open menu"
+        );
+        menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navigationLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) {
+            closeMenu();
+        }
+    });
+
+    document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+</script>
 </body>
 </html>
